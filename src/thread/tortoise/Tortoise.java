@@ -8,5 +8,42 @@ public class Tortoise extends Thread {
         super("Tortoise");
     }
 
+    @Override
+    public void run(){
+        for (int index = 0; index < MILESTONES; index++) {
+            switch (index){
+                case 0:
+                    System.out.println("The Tortoise has started from the started line!");
+                    break;
+                case 1:
+                    System.out.println("The Tortoise has reached the Cool River!");
+                    break;
+                case 2:
+                    System.out.println("The Tortoise has reached the Mountain Hill!");
+                    break;
+                case 3:
+                    System.out.println("The Tortoise has reached the Big Oak Tree!");
+                    try {
+                        Thread.sleep(9000L);
+                    } catch (InterruptedException e){
+                        System.out.println("The Tortoise has reached the finish line!");
+                        break;
+                    }
+                    try{
+                        Thread.sleep(3000L);
+                    } catch (InterruptedException e){
+                        System.out.println("The Tortoise has lost the path!");
+                    }
+
+            }
+            JOptionPane.showConfirmDialog(
+                    null,
+                    "The Tortoise has completed the race!",
+                    "Tortoise",
+                    JOptionPane.OK_CANCEL_OPTION
+            );
+        }
+    }
+
 
 }
